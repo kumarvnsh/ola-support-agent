@@ -12,6 +12,9 @@ end to end.
 `MOCK_LLM`. Embeddings (SentenceTransformers) and the vector index (ChromaDB) are free
 and local.
 
+Once the server is running (`uvicorn app:app`), open the chat UI at
+**http://127.0.0.1:8000/**.
+
 ---
 
 ## 1. Setup (do this once)

@@ -1,0 +1,45 @@
+Indexed: fixed=40 chunks, sentence=24 chunks
+
+== Task 4: threshold calibration (on sentence collection) ==
+  In-scope (should be HIGH):
+    0.781  How quickly must a P1 ticket get a first response?
+    0.496  When is a customer eligible for a refund?
+    0.699  How does a ticket get escalated to tier 2?
+  Out-of-scope (should be LOW):
+    0.042  What is the capital of France?
+    0.053  How do I bake chocolate chip cookies?
+  lowest in-scope = 0.496, highest out-of-scope = 0.053
+  --> suggested threshold (midpoint of the gap) = 0.275
+  pinned GROUNDING_THRESHOLD = 0.3 (see README for why)
+
+== Task 4: grounded generation demo (5 in-scope + 1 out-of-scope) ==
+  [GROUNDED] sim=0.781 src=['02_sla_by_severity.md', '09_feedback_collection.md']
+      Q: How quickly must a P1 ticket get a first response?
+  [GROUNDED] sim=0.496 src=['04_refund_compensation.md', '08_service_credit.md']
+      Q: When is a customer eligible for a refund?
+  [GROUNDED] sim=0.699 src=['03_escalation_matrix.md', '07_repeat_complaints.md']
+      Q: How does a ticket get escalated to tier 2?
+  [GROUNDED] sim=0.443 src=['02_sla_by_severity.md', '06_business_hours.md']
+      Q: What are the standard support business hours?
+  [GROUNDED] sim=0.723 src=['09_feedback_collection.md', '11_outage_communication.md', '12_data_retention.md']
+      Q: How long are support tickets kept before deletion?
+  [FALLBACK ] sim=0.042 (must be FALLBACK)
+      Q: What is the capital of France?
+
+== Task 5: precision/recall per strategy (top-k=3, doc-level) ==
+  --- fixed collection ---
+    P=0.50 R=1.00  retrieved=['02_sla_by_severity.md', '09_feedback_collection.md']  relevant=['02_sla_by_severity.md']
+    P=0.50 R=1.00  retrieved=['04_refund_compensation.md', '08_service_credit.md']  relevant=['04_refund_compensation.md']
+    P=0.50 R=1.00  retrieved=['03_escalation_matrix.md', '07_repeat_complaints.md']  relevant=['03_escalation_matrix.md']
+    P=1.00 R=1.00  retrieved=['06_business_hours.md']  relevant=['06_business_hours.md']
+    P=0.33 R=1.00  retrieved=['12_data_retention.md', '08_service_credit.md', '09_feedback_collection.md']  relevant=['12_data_retention.md']
+    mean precision=0.57  mean recall=1.00
+
+  --- sentence collection ---
+    P=0.50 R=1.00  retrieved=['02_sla_by_severity.md', '09_feedback_collection.md']  relevant=['02_sla_by_severity.md']
+    P=0.50 R=1.00  retrieved=['04_refund_compensation.md', '08_service_credit.md']  relevant=['04_refund_compensation.md']
+    P=0.50 R=1.00  retrieved=['03_escalation_matrix.md', '07_repeat_complaints.md']  relevant=['03_escalation_matrix.md']
+    P=0.50 R=1.00  retrieved=['06_business_hours.md', '02_sla_by_severity.md']  relevant=['06_business_hours.md']
+    P=0.33 R=1.00  retrieved=['12_data_retention.md', '09_feedback_collection.md', '11_outage_communication.md']  relevant=['12_data_retention.md']
+    mean precision=0.47  mean recall=1.00
+

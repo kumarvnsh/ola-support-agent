@@ -1,0 +1,21 @@
+Total tickets: 45  (need >= 40)
+
+Count per category (need each >= 3):
+  Billing          11  [OK]
+  Technical Issue  10  [OK]
+  Account Access    9  [OK]
+  Product Defect    5  [OK]
+  General Inquiry  10  [OK]
+
+Count per status (need each >= 1):
+  Open         12  [OK]
+  In Progress   9  [OK]
+  Escalated     4  [OK]
+  Resolved     10  [OK]
+  Closed       10  [OK]
+
+Escalated: 6/45 = 13.3%  (need 10%-30%)  [OK]
+
+80th percentile of days_since_created: 24 days (context for the escalation threshold).
+
+Sample lookup: {'found': True, 'record_id': 'TCK-0001', 'status': 'Open', 'resolution_time_hours': 36, 'escalation_score': 0.093, 'recommend_escalation': False}

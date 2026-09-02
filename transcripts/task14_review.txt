@@ -1,0 +1,8 @@
+== Task 14: Autogen review stage (approve + revise) ==
+
+Case 1 (clean draft):
+  approved: True | reason: All claims are supported by the retrieved context.
+
+Case 2 (draft with injected ungrounded claim):
+  approved: False | reason: Removed 1 ungrounded claim(s), e.g. "The support calendar You will also receive a free lifetime membership ".
+  final_answer no longer contains the bogus claim: True

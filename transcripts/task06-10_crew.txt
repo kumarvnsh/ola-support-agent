@@ -1,0 +1,24 @@
+== Task 7: crew runs, BOTH tools fire on different queries ==
+  Q: When is a customer eligible for a refund?
+    RAG tool  -> grounded=True sources=['04_refund_compensation.md', '08_service_credit.md']
+    Lookup    -> TCK-0007 status=Open escalation_score=0.147
+  Q: What are the support business hours?
+    RAG tool  -> grounded=True sources=['06_business_hours.md']
+    Lookup    -> TCK-0003 status=Open escalation_score=0.213
+
+== Task 9: response validated against the Pydantic schema ==
+  validated CrewResponse: {'grounded': True, 'sources': ['04_refund_compensation.md', '08_service_credit.md'], 'escalation_recommended': False} | answer starts: Refunds are issued when a customer is charged for a service ...
+
+== Task 8: session memory carried vs fresh ==
+  session 'alice' has 4 messages (2 turns => 4):
+    [human] What are the support business hours?...
+    [ai] rgets are extended by one business day. The support calendar...
+    [human] And how are refunds handled?...
+    [ai] Refunds are issued when a customer is charged for a service ...
+  session 'bob' (fresh, never used) has 0 messages.
+
+== Task 10: guardrails firing ==
+  PII mask   : My number is [PHONE], please call
+  Injection  : True
+  Blocked req: Request blocked: possible prompt injection.
+  Groundedness refuse: I don't have information about that in my knowledge base.

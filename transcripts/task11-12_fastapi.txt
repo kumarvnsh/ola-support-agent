@@ -1,0 +1,16 @@
+health: {'status': 'ok', 'service': 'ola-support-agent'}
+/ask grounded: True | sources: ['04_refund_compensation.md', '05_communication_channels.md', '08_service_credit.md']
+/add-document: {'status': 'added', 'doc_id': 'runtime_f681e7d4.md'}
+/ask about pets grounded: True
+ws turn1: rgets are extended by one business day. The suppor ...
+ws turn2: Refunds are issued when a customer is charged for  ...
+after ws disconnect, server still alive: ok
+phone masked in log: True | '[PHONE]' present: True
+log lines: 5
+
+--- sample log lines (logs/requests.jsonl) ---
+{"trace_id": "c815e464-4321-46ee-940e-7740847a0358", "ts": "2026-09-02T20:11:00", "endpoint": "/ask", "query": "When is a customer eligible for a refund? my number is [PHONE]", "duration_ms": 36.2, "grounded": true}
+{"trace_id": "65bef412-674f-44e2-9b0b-8a8cb4b2b39a", "ts": "2026-09-02T20:11:00", "endpoint": "/add-document", "query": "pet policy", "duration_ms": 10.8, "doc_id": "runtime_f681e7d4.md", "chunks": 1}
+{"trace_id": "52556e95-ecde-4144-8f61-37cbf0d719bc", "ts": "2026-09-02T20:11:00", "endpoint": "/ask", "query": "Are pets allowed in rides?", "duration_ms": 48.7, "grounded": true}
+{"trace_id": "b2aa87c9-7461-473e-bfb4-43fec661d3cf", "ts": "2026-09-02T20:11:00", "endpoint": "/ws/chat", "query": "What are the support business hours?", "duration_ms": 150.4}
+{"trace_id": "0cf1394d-820e-4eaa-b2e1-cfb5627f8c4c", "ts": "2026-09-02T20:11:00", "endpoint": "/ws/chat", "query": "And how are refunds handled?", "duration_ms": 31.8}

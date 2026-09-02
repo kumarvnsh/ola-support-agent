@@ -1,0 +1,3 @@
+# Ticket Priority Classification Rules
+
+Every incoming support ticket is assigned one of four priority levels: P1 (Critical), P2 (High), P3 (Medium), or P4 (Low). P1 is reserved for issues that stop a rider or driver from completing a trip, such as a failed payment mid-ride or a locked account. P2 covers problems that block a core action but have a workaround, P3 covers general functional complaints, and P4 covers questions, feedback, and cosmetic issues. Priority is decided from the ticket category and customer impact, not from how upset the customer sounds, so that classification stays consistent across agents.

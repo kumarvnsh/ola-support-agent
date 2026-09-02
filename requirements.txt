@@ -1,0 +1,19 @@
+# Ola Support capstone - pinned so the grader gets the same versions.
+# Install on Python 3.12 (see README). dataset.py alone needs none of these.
+sentence-transformers>=2.7,<3
+chromadb>=0.5,<0.6
+crewai>=0.60,<1
+# Autogen review stage (Task 14) needs the NEW autogen-agentchat 0.4+ API
+# (RoundRobinGroupChat / StructuredMessage / output_content_type), NOT legacy pyautogen.
+autogen-agentchat>=0.4,<0.8
+autogen-core>=0.4,<0.8
+autogen-ext>=0.4,<0.8
+# Pinned to keep autogen (protobuf~=5.29) and chromadb's google.rpc gencode compatible.
+protobuf==5.29.3
+googleapis-common-protos==1.65.0
+langchain>=0.2,<0.3
+langchain-community>=0.2,<0.3
+pydantic>=2.6,<3
+fastapi>=0.110,<1
+uvicorn>=0.29,<1
+websockets>=12,<13

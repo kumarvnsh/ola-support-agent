@@ -1,0 +1,3 @@
+# Data Retention Policy for Tickets
+
+Support tickets and their conversation history are retained for 24 months from the date the ticket is closed, after which they are permanently deleted. During that period the data is used only for resolving the issue, handling repeat complaints, and internal quality review. Personally identifiable details such as phone numbers are masked in logs and analytics, so raw contact information is never stored in reporting systems. Customers may request a copy or deletion of their support data, and verified requests are honoured within the timelines set by the applicable privacy regulation.

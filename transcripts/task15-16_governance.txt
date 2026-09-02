@@ -1,0 +1,17 @@
+== Task 15 (Application): least autonomy ==
+  Retrieval Agent      tools=['knowledge_base_search']
+  Lookup Agent         tools=['check_support_ticket_status']
+  Response Composer    tools=[]
+  only Lookup Agent can look up tickets: True
+
+== Task 15 (Risk classification) ==
+  risk_level: Medium
+  This is a customer-support assistant: it answers support-policy questions and reads non-financial ticket metadata (status, age). It handles no medical data, makes no hiring or lending decisions, and moves no money, so it is not High risk; but it does face real customers and can act on masked PII, so it is above Low. Customer support sits squarely in the Medium band.
+
+== Task 15 (Runtime): budget cap rejects an oversized request ==
+  normal request  -> rejected=False (~7 tokens)
+  oversized request -> rejected=True: Request too large: ~750 tokens exceeds the 256-token budget cap.
+
+== Task 16: response cache hit ==
+  after 2 identical queries, real underlying calls = 1 (expected 1)
+  miss took 12.23 ms, cache hit took 0.002 ms
